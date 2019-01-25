@@ -1,0 +1,6 @@
+**/.DS_Store
+**/*.origin
+*.iml
+
+target/
+.idea/

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.xd</groupId>
+  <artifactId>QATools</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>QATools Maven Webapp</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <spring-boot.version>2.0.4.RELEASE</spring-boot.version>
+    <jackson.version>2.9.5</jackson.version>
+    <mybatis.version>3.4.6</mybatis.version>
+    <mybatis-spring.version>1.3.2</mybatis-spring.version>
+    <redis.version>2.9.0</redis.version>
+    <spring-data-redis.version>1.8.4.RELEASE</spring-data-redis.version>
+    <mysql.version>5.1.46</mysql.version>
+    <junit.version>4.12</junit.version>
+    <mybatis-spring-boot.version>1.3.2</mybatis-spring-boot.version>
+    <mybatis-generator.version>1.3.7</mybatis-generator.version>
+    <druid.version>1.1.10</druid.version>
+    <java-jwt.version>3.4.0</java-jwt.version>
+    <spring-restdocs.version>2.0.2.RELEASE</spring-restdocs.version>
+    <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+  </properties>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.0.4.RELEASE</version>
+  </parent>
+
+  <dependencies>
+    <!-- Config Spring Boot -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <version>${spring-boot.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+      <version>${spring-boot.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <version>${spring-boot.version}</version>
+    </dependency>
+
+    <!-- Config Spring Batch -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-batch</artifactId>
+      <version>2.0.4.RELEASE</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.restdocs</groupId>
+      <artifactId>spring-restdocs-mockmvc</artifactId>
+      <version>${spring-restdocs.version}</version>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>spring-webmvc</artifactId>
+          <groupId>org.springframework</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>spring-web</artifactId>
+          <groupId>org.springframework</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>spring-test</artifactId>
+          <groupId>org.springframework</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>jackson-databind</artifactId>
+          <groupId>com.fasterxml.jackson.core</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- Config Spring Boot热更新模块-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+      <version>${spring-boot.version}</version>
+      <optional>true</optional>
+    </dependency>
+
+    <!-- Config Mysql-->
+
+    <!-- Config Datasource-->
+
+    <!-- Config Mongodb-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-mongodb</artifactId>
+      <version>${spring-boot.version}</version>
+    </dependency>
+
+    <!-- Config Mybatis-->
+
+    <!-- Config Redis-->
+    <dependency>
+      <groupId>redis.clients</groupId>
+      <artifactId>jedis</artifactId>
+      <version>${redis.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-redis</artifactId>
+      <version>${spring-boot.version}</version>
+    </dependency>
+
+    <!-- Config JWT Creator-->
+    <dependency>
+      <groupId>com.auth0</groupId>
+      <artifactId>java-jwt</artifactId>
+      <version>${java-jwt.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
+
+    <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
+  </dependencies>
+
+  <build>
+    <finalName>QATools</finalName>
+      <plugins>
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+          <version>${spring-boot.version}</version>
+          <configuration>
+            <fork>true</fork>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.20.1</version>
+          <configuration>
+              <includes>
+                <include>**/*Test.java</include>
+              </includes>
+          </configuration>
+        </plugin>
+      </plugins>
+  </build>
+</project>
