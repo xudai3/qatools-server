@@ -9,6 +9,6 @@ public class IndexController {
 
     @RequestMapping(value = "/v1/index", method = RequestMethod.GET)
     public String initMainPage() {
-        return "Hello World";
+        return "Hello World Docker Test";
     }
 }
